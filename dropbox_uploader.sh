@@ -129,6 +129,7 @@ function remove_temp_files
 # macosx:            darwin10.0
 # freebsd:           FreeBSD
 # qnap:              linux-gnueabi
+# iOS:               darwin9
 function file_size
 {
     #Qnap
@@ -137,7 +138,7 @@ function file_size
         return
 
     #Generic Unix
-    elif [ "${OSTYPE:0:5}" == "linux" -o "$OSTYPE" == "cygwin" -o "${OSTYPE:0:7}" == "solaris" ]; then
+    elif [ "${OSTYPE:0:5}" == "linux" -o "$OSTYPE" == "cygwin" -o "${OSTYPE:0:7}" == "solaris" -o "${OSTYPE}" == "darwin9" ]; then
         stat --format="%s" "$1"
         return
         
